@@ -1,29 +1,27 @@
-<div class="contents row">
-  <div class="container">
-    <h3>投稿する</h3>
-    <%= form_with(model: @article, local: true) do |form| %>
-      <div class="weight-bold-text">
-        タイトル
-        <%= form.text_field :name, placeholder: "Nickname" %>
-      </div>
-        
-      <div class="weight-bold-text">
-        行動内容
-        <%= form.text_area :text, placeholder: "text", rows: "10" %>
-      </div>
-      <div class="img-upload">
-        <div class="weight-bold-text">
-          参考イメージ
-        </div>
-        <div class="click-upload">
-          <div id="image-list"></div>
-          <p>
-            クリックしてファイルをアップロード
-            <%= form.file_field :image, placeholder: "Image Url" %>
-          </p>
-        </div>
-      </div>
-      <%= form.submit "SEND" %>
-    <% end %>
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">新規投稿</h2>
+        <%= form_with model: article, local: true do |f|%>
+          <div class="field">
+            <%= f.label :title, "記事タイトル" %><br />
+            <%= f.text_field :title, id:"article_title" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :text, "投稿内容" %><br />
+            <%= f.text_area :text, class: :form__text, id:"article_text" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :image, "参考画像" %><br />
+            <%= f.file_field :image, id:"article_image" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "保存する", class: :form__btn  %>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>
