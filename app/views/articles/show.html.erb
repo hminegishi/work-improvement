@@ -5,14 +5,12 @@
         <%= @article.title %>
       </p>
       <%= link_to "by #{@article.user.nickname}", "/users/#{@article.user.id}", class: :article__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
       <% if user_signed_in? && current_user.id == @article.user_id %>
         <div class="article__manage">
           <%= link_to "編集する", edit_article_path, class: :article__btn %>
           <%= link_to "削除する", article_path(@article.id), method: :delete, class: :article__btn %>
         </div>
       <% end %>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="article__image">
         <%= image_tag @article.image %>
       </div>
@@ -29,6 +27,29 @@
             <%= @article.text %>
           </p>
         </div>
+      </div>
+      <div class="article__comments">
+        <% if user_signed_in? %>
+          <%= form_with(model: [@article, @comment], local: true) do |f|%>
+            <div class="field">
+              <%= f.label :text, "コメント" %><br />
+              <%= f.text_field :text, id:"comment_text" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+          <% end %> 
+        <% end %>
+        <ul class="comments_lists">
+          <% @comments.each do |comment| %>
+            <li class="comments_list">
+              <p>
+                <%= comment.text %>
+                <strong><%= link_to "(#{comment.user.nickname})", "/users/#{comment.user.id}", class: :comment_user %></strong>
+              </p>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
