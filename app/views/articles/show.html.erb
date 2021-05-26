@@ -1,0 +1,35 @@
+<main class="main">
+  <div class="inner">
+    <div class="article__wrapper">
+      <p class="article__hedding">
+        <%= @article.title %>
+      </p>
+      <%= link_to "by #{@article.user.nickname}", "/users/#{@article.user.id}", class: :article__user %>
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if user_signed_in? && current_user.id == @article.user_id %>
+        <div class="article__manage">
+          <%= link_to "編集する", edit_article_path, class: :article__btn %>
+          <%= link_to "削除する", article_path(@article.id), method: :delete, class: :article__btn %>
+        </div>
+      <% end %>
+      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <div class="article__image">
+        <%= image_tag @article.image %>
+      </div>
+      <div class="article__body">
+        <div class="article__detail">
+          <p class="detail__title">タイトル</p>
+          <p class="detail__message">
+            <%= @article.title %>
+          </p>
+        </div>
+        <div class="article__detail">
+          <p class="detail__title">記事内容</p>
+          <p class="detail__message">
+            <%= @article.text %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

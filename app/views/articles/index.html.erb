@@ -10,16 +10,7 @@
     <%# // ログインしているとき %>
     <div class="card__wrapper">
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
-      <div class="card">
-        <%#= link_to image_tag(article).image, class: :card__img), article_path(article.id), method: :get %>
-        <%# <div class="card__body"> %>
-          <%#= link_to article.title, article_path(article.id), method: :get, class: :card__title %>
-          <%# <p class="card__summary"> %>
-          <%#= link_to article.text, article_path(article.id), method: :get %>
-          <%# </p> %>
-          <%#= link_to article.nickname, "/users/#{article.user.id}", class: :card__user %>
-        <%# </div> %>
-      </div>
+      <%= render partial: "article", collection: @articles %>
     </div>
   </div>
 </main>
