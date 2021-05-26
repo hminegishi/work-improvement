@@ -13,6 +13,8 @@
             <%= f.text_area :text, class: :form__text, id:"article_text" %>
           </div>
 
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+
           <div class="field">
             <%= f.label :image, "参考画像" %><br />
             <%= f.file_field :image, id:"article_image" %>
