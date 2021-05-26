@@ -3,7 +3,17 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def new
+    @article = Article.new
+  end
+
+  def create
+    Article.create(article_params)
+  end
+
+  private
+
   def article_params
-    params.require(:article).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :text, :image)
   end
 end
