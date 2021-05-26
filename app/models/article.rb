@@ -8,4 +8,12 @@ class Article < ApplicationRecord
   validates :category_id, numericality: { other_than: 1 }
   validates :title, presence: true
   validates :text, presence: true
+  
+  def self.search(search)
+    if search != ""
+      Article.where('text LIKE(?)', "%#{search}%")
+    else
+      Article.all
+    end
+  end
 end

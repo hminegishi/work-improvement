@@ -21,16 +21,17 @@
             <%= @article.category.name %>
           </p>
         </div>
-        <div class="article__detail">
-          <p class="detail__title">タイトル</p>
-          <p class="detail__message">
-            <%= @article.title %>
-          </p>
         </div>
         <div class="article__detail">
           <p class="detail__title">記事内容</p>
           <p class="detail__message">
             <%= @article.text %>
+          </p>
+        </div>
+        <div class="article__detail">
+          <p class="detail__title">投稿日</p>
+          <p class="detail__message">
+            <%= @article.created_at %>
           </p>
         </div>
       </div>

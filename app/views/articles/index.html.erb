@@ -1,11 +1,12 @@
 <main class="main">
   <div class="inner">
-    <% if user_signed_in? %>
-      <div class="greeting">
-        <%= "こんにちは、" %>
-        <%= link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: :greeting__link %>
+    <h2 class="site-description">このサイトについて</h2>
+      <div class="description">
+      本サイトは様々な改善事例を紹介するサイトです。
+      社内での改善記録を本サイト内に投稿をして頂き業務改善記録を残して振り返りを行なったり、
+      他者からの意見などをもらって新しい取り組みを行なったりすることを目的としています。
+      あなたのお仕事にぜひご活用ください。
       </div>
-    <% end %>
     <div class="card__wrapper">
       <%= render partial: "article", collection: @articles %>
     </div>
