@@ -28,8 +28,7 @@
 - belongs_to :user
 - belongs_to :category
 - has_many   :comments
-- has_many :article_tag_relations
-- has_many :tags, through: :article_tag_relations
+- has_one_attached :image
 
 ## comment テーブル
 
@@ -43,26 +42,3 @@
 
 - belongs_to :user
 - belongs_to :article
-
-## tag テーブル
-
-| Column           | Type        | Options                        |
-| ---------------- | ----------- | ------------------------------ |
-| name             | string      | null: false                    |
-
-### Association
-
-- has_many :article_tag_relations
-- has_many :articles, through: :article_tag_relations
-
-## article_tag_relation テーブル
-
-| Column           | Type        | Options                        |
-| ---------------- | ----------- | ------------------------------ |
-| article          | references  | null: false, foreign_key: true |
-| tag              | references  | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :article
-- belongs_to :tag
