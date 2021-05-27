@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to article_path(article.id), method: :get
+      redirect_to article_path(@article.id), method: :get
     else
       render :edit
     end

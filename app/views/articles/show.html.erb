@@ -16,6 +16,12 @@
       </div>
       <div class="article__body">
         <div class="article__detail">
+          <p class="detail__title">投稿日</p>
+          <p class="detail__message">
+            <%= @article.created_at %>
+          </p>
+        </div>
+        <div class="article__detail">
           <p class="detail__title">カテゴリー</p>
           <p class="detail__message">
             <%= @article.category.name %>
@@ -26,12 +32,6 @@
           <p class="detail__title">記事内容</p>
           <p class="detail__message">
             <%= @article.text %>
-          </p>
-        </div>
-        <div class="article__detail">
-          <p class="detail__title">投稿日</p>
-          <p class="detail__message">
-            <%= @article.created_at %>
           </p>
         </div>
       </div>

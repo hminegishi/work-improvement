@@ -139,6 +139,10 @@ a {
   margin-bottom: 20px;
 }
 
+.topimage {
+  width: 100%;
+}
+
 .greeting{
   margin-bottom: 20px;
 }
@@ -162,6 +166,7 @@ a {
 }
 .card__img {
   margin-bottom: 16px;
+  height: 300px;
 }
 .card__title {
   display: block;

@@ -31,17 +31,6 @@
 - has_many :article_tag_relations
 - has_many :tags, through: :article_tag_relations
 
-
-## category テーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| work_name | string     | null: false                    |
-
-### Association
-
-- has_many    :articles
-
 ## comment テーブル
 
 | Column           | Type        | Options                        |
