@@ -4,7 +4,7 @@
       <h2 class="page-heading">新規ユーザー登録</h2>
 
         <%= form_with model: @user, url: user_registration_path , local: true do |f| %>
-
+        <%= devise_error_messages! %>
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
